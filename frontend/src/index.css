@@ -1,0 +1,400 @@
+/* Frosted Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Gradient Background */
+.gradient-dark {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 100vh;
+}
+
+/* Input Styles */
+.glass-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: #4DB8C4;
+  box-shadow: 0 0 0 3px rgba(77, 184, 196, 0.1);
+}
+
+.glass-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Utility Classes */
+.p-8 {
+  padding: 2rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: #E0E0E0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  
+  /* Color Palette - Reusable across app */
+  --color-charcoal: #1a1a1a;
+  --color-teal: #4DB8C4;
+  --color-dark-teal: #1a5f6b;
+  --color-cream: #FAFAF8;
+  --color-gold: #D4AF37;
+  --color-burgundy: #8B3A3A;
+  --color-light-gray: #E0E0E0;
+  --color-white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #E0E0E0;
+}
+
+a {
+  color: #4DB8C4;
+}
+
+.layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand .nav-link {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #FFFFFF;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 600;
+  color: #E0E0E0;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #4DB8C4;
+}
+
+.nav-link-active {
+  color: #4DB8C4;
+  text-decoration: none;
+}
+
+.navbar-logout {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.9rem;
+  background: #FFFFFF;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-logout:hover {
+  opacity: 0.9;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.two-col-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+@media (min-width: 640px) {
+  .two-col-form {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+  }
+
+  .two-col-form .form-actions {
+    grid-column: 1 / -1;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.tab {
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  border: 1px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.tab-active {
+  background: #4DB8C4;
+  color: #1a1a1a;
+  border-color: #4DB8C4;
+}
+
+.inline-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85em;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #E0E0E0;
+}
+
+.table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  background: #000000;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.6rem 0.65rem;
+  border-bottom: 1px rgba(255, 255, 255, 0.1);
+  text-align: left;
+  color: #FFFFFF;
+  background: #000000;
+}
+
+.data-table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  background: #1a1a1a;
+  font-weight: 600;
+}
+
+.data-table tr:nth-child(even) td {
+  background: #000000;
+}
+
+.data-table tr:hover td {
+  background: #1a1a1a;
+}
+
+.data-table .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.data-table .mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+}
+
+.invoice-list-card {
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5,
+.card h6 {
+  color: #FFFFFF;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem 0.65rem;
+  border: 1px rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font: inherit;
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+}
+
+select {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+select option {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4DB8C4;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  background: #FFFFFF;
+  color: #1a1a1a;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 1px rgba(255, 255, 255, 0.2);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+button.delete {
+  background: #8B3A3A;
+  color: #FFFFFF;
+}
+
+button.delete:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.error {
+  color: #FF6B6B;
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #E0E0E0;
+}
+
+.nav a:hover {
+  color: #4DB8C4;
+}
