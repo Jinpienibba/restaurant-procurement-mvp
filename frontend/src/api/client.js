@@ -1,4 +1,4 @@
-const baseUrl = import.meta.env.VITE_API_URL ?? '';
+const baseUrl = `${import.meta.env.VITE_API_URL ?? ''}/api`;
 
 export async function api(path, { token, headers, body, ...init } = {}) {
   const url = `${baseUrl}${path}`;
