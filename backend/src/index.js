@@ -37,9 +37,20 @@ app.use((req, res, next) => {
   next();
 });
 
+// CORS: allow all origins. We can't use credentials:true together with
+// Access-Control-Allow-Origin: "*", so we reflect the request origin and
+// keep credentials disabled (the frontend uses Bearer tokens, not cookies).
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  credentials: true,
+  origin: true, // reflect request origin -> effectively allow all
+  credentials: false,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// Make sure preflight requests succeed for every route
+app.options('*', cors({
+  origin: true,
+  credentials: false,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));

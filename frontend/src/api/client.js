@@ -1,4 +1,10 @@
-const baseUrl = `${import.meta.env.VITE_API_URL ?? ''}/api`;
+// Build a robust base URL. Tolerate users setting VITE_API_URL with or without
+// a trailing "/api" (or trailing slash). This prevents accidental "/api/api/..."
+// requests when the env var is misconfigured on the host (e.g. Vercel).
+const rawApiUrl = (import.meta.env.VITE_API_URL ?? '').trim();
+const trimmedApiUrl = rawApiUrl.replace(/\/+$/, ''); // remove trailing slashes
+const normalizedApiUrl = trimmedApiUrl.replace(/\/api$/i, ''); // strip trailing /api if present
+const baseUrl = `${normalizedApiUrl}/api`;
 
 export async function api(path, { token, headers, body, ...init } = {}) {
   const url = `${baseUrl}${path}`;
